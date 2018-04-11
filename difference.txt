@@ -1,0 +1,29 @@
+defference between document.body and document.documentElement:
+
+From: KorApr '08
+
+It is a matter of how the browsers, according to the type/version and standard(strict)/quirks mode (with/without a Doctype) make the difference between window , body, document and documentElement. The behaviors are peculiar and hardly to be set in a general rule.
+
+According to the type and mode, body and/or documentElement might be the block element (the element which bears the size) of the window's viewport, of the document or even of both :rolleyes:
+
+Sounds messy, I know, but don't ask me why, ask the people who created those browsers.
+
+For instance, several examples
+
+1. IE 6-8 strict, Mozilla strict and Opera 9.5+ strict
+document.body.clientHeight = document's height
+document.documentElement.clientHeight = window's viewport height
+
+2. IE 5 and IE 6-8 quirks
+document.body.clientHeight = window's viewport height
+document.documentElement.clientHeight = 0
+
+3. Opera 7-9.2 and Opera 9.5 quirks
+document.body.clientHeight = window's viewport height
+document.documentElement.clientHeight = document's height
+
+4.Safari
+document.body.clientHeight = document's height
+document.documentElement.clientHeight = document's height
+
+Other browsers behave alike or between the above.
